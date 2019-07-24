@@ -1,6 +1,12 @@
-### Notas de aula
+## Notas de aula
 
-#### Aula 1
+### Referências
+
+- [Install nodejs on Fedora](https://tecadmin.net/install-latest-nodejs-on-fedora/)
+
+### Aula 1
+
+Tive que criar o banco de dados, e alterar as credenciais de acesso ao banco.
 
 Para criar um usuário basta mandar uma requisição do tipo `POST` com os parametros `nome` e `cpf` no endpoint `/clientes/cliente`. A consulta de todos os clientes criados no sistema pode ser feito através de um `GET` em `/clientes.
 
@@ -8,14 +14,14 @@ Queremos criar uma nova página que irá listar os pets de um determinado client
 
 O frontend tem a capacidade de fazer isso, consumir diversos endpoints diferentes, e é justamente isso que ele já está fazendo. Queremos dimunuir essa carga, por isso faremos no backend essa preparação dos dados. Mesmo movendo isso para o backend, ainda teremos muito trabalho para fazer, criando diversas rotas e consumindo elas. Optaremos por uma abordagem diferente, utilizando o GraphQL, que criará apenas 1 endpoint e retornará os dados de acordo com os pedidos dos clientes.
 
-##### Passos para usar o GraphQL
+#### Passos para usar o GraphQL
 
 1. Instalar o `graphql-yoga`
 2. Trocar o Express pelo GraphQLServer
 3. Definir um schema
 4. Definir resolvers, cada valor deve ser um objeto ou função
 
-##### Criando o tipo cliente
+#### Criando o tipo cliente
 
 O parâmetro **!** serve para dizer que o atributo é obrigatório.
 
