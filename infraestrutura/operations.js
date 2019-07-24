@@ -4,26 +4,31 @@ class Operations {
   constructor(entidade) {
     this._entidade = entidade
   }
-
-  lista(res) {
+  // Vamos apagar os res pq estavamos colocando a resposta neles (vide queries.js)
+  // e daqui pra frente vamos retornar para o graphql isso
+  /* lista(res) {
     cruds[this._entidade].lista(res)
+  } */
+
+  lista() {
+    return cruds[this._entidade].lista()
   }
 
-  buscaPorId(res, id) {
-    cruds[this._entidade].buscaPorId(res, id)
+  buscaPorId(id) {
+    return cruds[this._entidade].buscaPorId(id)
   }
 
-  adiciona(res, item) {
-    cruds[this._entidade].adiciona(res, item)
+  adiciona(item) {
+    return cruds[this._entidade].adiciona(item)
 
   }
 
-  atualiza(res, novoItem, id) {
-    cruds[this._entidade].atualiza(res, novoItem, id)
+  atualiza(novoItem, id) {
+    return cruds[this._entidade].atualiza(novoItem, id)
   }
 
-  deleta(res, id) {
-    cruds[this._entidade].deleta(res, id)
+  deleta(id) {
+    return cruds[this._entidade].deleta(id)
   }
 }
 
