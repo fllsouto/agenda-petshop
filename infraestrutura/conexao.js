@@ -1,11 +1,11 @@
 const mysql = require('mysql')
-
+const config = require('../auth.json');
 const conexao = mysql.createConnection({
-  host: 'localhost',
-  port: 3306,
-  user: 'root',
-  password: 'gS##lDXwrI##o9',
-  database: 'agenda_petshop'
+  host: config.host,
+  port: config.port,
+  user: config.user,
+  password: config.password,
+  database: config.database
 })
 
 module.exports = conexao
