@@ -23,8 +23,8 @@ class Operations {
 
   }
 
-  atualiza(novoItem, id) {
-    return cruds[this._entidade].atualiza(novoItem, id)
+  atualiza(novoItem) {
+    return cruds[this._entidade].atualiza(novoItem)
   }
 
   deleta(id) {

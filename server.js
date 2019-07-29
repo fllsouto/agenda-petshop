@@ -25,10 +25,13 @@ const Clientes = new Operations('cliente')
 const resolvers = {
   Query: {
     status: () => 'Servidor rodando!',
-    clientes: () => Clientes.lista()
+    clientes: () => Clientes.lista(),
+    cliente: (root, { id }) => Clientes.buscaPorId(id) // Fazendo destruction do id
   },
   Mutation: {
-    adicionarCliente: (root, params) => Clientes.adiciona(params)
+    adicionarCliente: (root, params) => Clientes.adiciona(params),
+    atualizaCliente: (root, params) => Clientes.atualiza(params),
+    deletaCliente: (root, { id }) => Clientes.deleta(id)
   }
 }
 
