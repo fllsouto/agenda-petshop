@@ -4,14 +4,25 @@ type Cliente {
     cpf: String!
 }
 
+type Pet {
+    id: ID!
+    nome: String!
+    dono: Cliente!
+    tipo: String
+    observacoes: String
+}
+
 type Mutation {
-    adicionarCliente(nome: String!, cpf: String!): Cliente!
+    adicionaCliente(nome: String!, cpf: String!): Cliente!
     atualizaCliente(id: ID!, nome: String!, cpf: String!): Cliente!
     deletaCliente(id: ID!): ID!
+    adicionaPet(nome: String!, donoId: Int, tipo: String, observacoes: String): Pet!
 }
 
 type Query {
     status: String!
     clientes: [Cliente!]!
-    cliente(id: ID!): Cliente! 
+    cliente(id: ID!): Cliente!
+    pets: [Pet!]!
+    pet(id: ID!): Pet! 
 }
