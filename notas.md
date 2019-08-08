@@ -113,3 +113,59 @@ mutation {
   deletaCliente(id: 3)
 }
 ```
+
+## Aula 5
+
+Ao fazer uma mutation, se eu não passar os dados o campo ficará undefined, então atualização tem que ser em todos os campos, algo não muito bom, eu quero também poder economizar nas mutations o tanto de dados que eu envio para o servidor:
+
+```graphql
+mutation {
+  atualizaPet(id: 1, nome: "Sonicão") {
+    id
+    nome
+    dono {
+      nome
+      cpf
+    }
+  }
+}
+
+query {
+  pets {
+    id
+    nome
+    tipo
+    observacao
+    dono {
+      nome
+      cpf
+    }
+  }
+}
+
+# Resultado:
+{
+  "data": {
+    "pets": [
+      {
+        "nome": "Sonicão",
+        "id": "1",
+        "tipo": "undefined",
+        "observacoes": "undefined",
+        "dono": {
+          "nome": "Fellipe souto"
+        }
+      },
+      {
+        "nome": "tails",
+        "id": "2",
+        "tipo": "Raposa",
+        "observacoes": "muito bonzinho",
+        "dono": {
+          "nome": "Fellipe"
+        }
+      }
+    ]
+  }
+}
+```
